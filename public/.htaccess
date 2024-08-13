@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    # Ativa o mecanismo de reescrita
+    RewriteEngine On
+
+    # Verifica se o arquivo ou diretório solicitado existe
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Se não existir, redireciona tudo para index.php
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
