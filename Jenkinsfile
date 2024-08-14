@@ -11,8 +11,10 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Clona o repositório
-                checkout scm
+                checkout([$class: 'GitSCM',
+                          branches: [[name: '*/main']],
+                          userRemoteConfigs: [[url: 'https://github.com/cookiesoftdev/symfony-api-project.git']]
+                ])
             }
         }
 
